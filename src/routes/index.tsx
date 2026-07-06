@@ -396,7 +396,7 @@ function Home() {
                   Systems.
                 </p>
                 <p className="mt-1" >
-                  JEE Mains 2022 qualified
+                  JEE Mains 2023 qualified
                 </p>
               </div>
             </div>
