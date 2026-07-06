@@ -380,10 +380,9 @@ function Home() {
               </span>
             </div>
             <h2 className="mt-2 font-display text-4xl md:text-5xl">Academics.</h2>
-
             <div className="mt-8">
               <div className="comic-border rounded-2xl p-6 bg-card text-card-foreground">
-                <span className="font-mono text-xs uppercase tracking-widest text-primary">
+                <span className="font-mono text-xs uppercase tracking-widest text-sky-400 font-bold">
                   2022 — 2026
                 </span>
                 <h3 className="mt-2 font-display text-xl leading-tight">
@@ -397,7 +396,7 @@ function Home() {
                   Systems.
                 </p>
                 <p className="mt-1" >
-                  JEE Mains 20223 qualified
+                  JEE Mains 2022 qualified
                 </p>
               </div>
             </div>
@@ -447,26 +446,28 @@ function Home() {
                   key={p.name}
                   className="comic-border-sm rounded-xl p-5 bg-card text-card-foreground"
                 >
-                  <div className="flex flex-wrap items-center justify-between gap-2.5">
+                  <div className="flex flex-wrap items-center justify-between gap-3">
                     <div>
-                      <h3 className="font-display text-xl leading-tight">{p.name}</h3>
+                      <div className="flex items-center gap-2">
+                        <h3 className="font-display text-xl leading-tight">{p.name}</h3>
+                        <a
+                          href={p.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="comic-border-sm rounded-full bg-black text-white hover:bg-neutral-800 h-7 w-7 grid place-items-center transition-colors cursor-pointer shrink-0"
+                          title={`${p.name} Profile`}
+                        >
+                          <ExternalLink className="h-3.5 w-3.5" />
+                        </a>
+                      </div>
                       <div className="font-mono text-xs text-primary mt-1">
                         {p.handle}
                       </div>
                     </div>
-                    <div className="flex items-center gap-3 shrink-0">
-                      <span className="comic-border-sm rounded-full bg-background text-foreground px-3 py-1.5 font-mono text-xs font-bold tracking-wide">
+                    <div>
+                      <span className="comic-border-sm rounded-full bg-background text-foreground px-3 py-1 sm:py-1.5 font-mono text-[10px] sm:text-xs font-bold tracking-wide inline-block">
                         {p.stat}
                       </span>
-                      <a
-                        href={p.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="comic-border-sm rounded-full bg-black text-white hover:bg-neutral-800 h-9 w-9 grid place-items-center transition-colors cursor-pointer"
-                        title={`${p.name} Profile`}
-                      >
-                        <ExternalLink className="h-4 w-4" />
-                      </a>
                     </div>
                   </div>
                   {p.points && p.points.length > 0 && (
@@ -518,25 +519,28 @@ function Home() {
       <div id="connect">
         <section className="p-8 md:p-16 bg-primary text-primary-foreground relative overflow-hidden">
           <img src={webImg} alt="" aria-hidden className="absolute -top-24 -right-24 w-[420px] opacity-20 invert" />
-          <div className="relative max-w-3xl">
-            <span className="font-mono text-xs uppercase tracking-[0.3em]">
-              // signal me
-            </span>
-            <h2 className="mt-2 font-display text-3xl md:text-5xl leading-[0.95]">
-              Got a project?
-              <br />
-              <span className="text-accent">Web me up.</span>
-            </h2>
-            <p className="mt-5 font-body text-lg max-w-xl">
-              Open to internships, freelance work, collaborations, and exciting ideas.
-            </p>
+          <div className="absolute inset-0 bg-[radial-gradient(rgba(0,0,0,0.15)_1.5px,transparent_1.5px)] [background-size:8px_8px] pointer-events-none" />
+          <div className="max-w-4xl mx-auto relative z-10">
+            <div className="flex flex-col items-start">
+              <span className="font-mono text-xs uppercase tracking-[0.35em] text-accent">
+                // signal me
+              </span>
+              <h2 className="mt-2 font-display text-3xl md:text-5xl leading-[0.95]">
+                Got a project?
+                <br />
+                <span className="text-accent">Web me up.</span>
+              </h2>
+              <p className="mt-5 font-body text-lg max-w-xl">
+                Open to internships, freelance work, collaborations, and exciting ideas.
+              </p>
 
-            <a
-              href="mailto:peter@bugle.dev"
-              className="mt-8 inline-flex items-center gap-3 comic-border rounded-full bg-ink text-background px-6 py-4 font-mono text-sm uppercase tracking-widest hover:bg-accent hover:text-accent-foreground transition-colors"
-            >
-              <Mail className="h-4 w-4" /> nikunj902782@gmail.com
-            </a>
+              <a
+                href="mailto:nikunj902782@gmail.com"
+                className="mt-8 inline-flex items-center gap-3 comic-border rounded-full bg-ink text-background px-5 py-3 sm:px-6 sm:py-4 font-mono text-xs sm:text-sm uppercase tracking-wider sm:tracking-widest hover:bg-accent hover:text-accent-foreground transition-colors max-w-full break-all"
+              >
+                <Mail className="h-4 w-4 shrink-0" /> nikunj902782@gmail.com
+              </a>
+            </div>
 
             <div className="mt-10 flex flex-wrap gap-3">
               {[

@@ -132,19 +132,6 @@ function RootShell({ children }: { children: ReactNode }) {
             @keyframes spin-reverse { to { transform: rotate(-360deg); } }
           `}} />
         </div>
-        <script dangerouslySetInnerHTML={{ __html: `
-          (function(){
-            var mo = new MutationObserver(function(){
-              if(document.getElementById('__app')||document.querySelector('[data-reactroot]')){
-                var el=document.getElementById('__loading');
-                if(el){el.style.opacity='0';setTimeout(function(){el.remove();},400);}
-                mo.disconnect();
-              }
-            });
-            mo.observe(document.body,{childList:true,subtree:true});
-            setTimeout(function(){var el=document.getElementById('__loading');if(el){el.style.opacity='0';setTimeout(function(){el.remove();},400);}},5000);
-          })();
-        `}} />
         {children}
         <Scripts />
       </body>
@@ -154,6 +141,14 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    const el = document.getElementById("__loading");
+    if (el) {
+      el.style.opacity = "0";
+      setTimeout(() => el.remove(), 400);
+    }
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
