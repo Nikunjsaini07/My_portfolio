@@ -374,12 +374,12 @@ function Home() {
           {/* Experience Column */}
           <div className="lg:col-span-6 p-6 md:p-12 border-b-[3px] border-ink lg:border-b-0 lg:border-r-[3px]">
             <div className="flex items-center gap-3">
-              <GraduationCap className="h-6 w-6 text-primary" />
+              <GraduationCap className="h-6 w-6 text-sky-400" />
               <span className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
                 
               </span>
             </div>
-            <h2 className="mt-2 font-display text-4xl md:text-5xl">Academics.</h2>
+            <h2 className="mt-2 font-display text-3xl md:text-5xl">Academics.</h2>
             <div className="mt-8">
               <div className="comic-border rounded-2xl p-6 bg-card text-card-foreground">
                 <span className="font-mono text-xs uppercase tracking-widest text-sky-400 font-bold">
@@ -405,12 +405,12 @@ function Home() {
           {/* Achievements Column */}
           <div className="lg:col-span-6 p-6 md:p-12 bg-card text-card-foreground">
             <div className="flex items-center gap-3">
-              <Award className="h-6 w-6 text-primary" />
+              <Award className="h-6 w-6 text-sky-400" />
               <span className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
                 
               </span>
             </div>
-            <h2 className="mt-2 font-display text-4xl md:text-5xl">Achievements.</h2>
+            <h2 className="mt-2 font-display text-3xl md:text-5xl">Achievements.</h2>
 
             <ul className="mt-8 space-y-3 font-body text-sm">
               {achievements.map((a) => (
@@ -418,7 +418,7 @@ function Home() {
                   key={a}
                   className="comic-border-sm rounded-xl p-4 bg-background text-foreground flex items-start gap-2"
                 >
-                  <span className="text-primary font-mono select-none">★</span>
+                  <span className="text-sky-400 font-mono select-none">★</span>
                   <span>{a}</span>
                 </li>
               ))}
