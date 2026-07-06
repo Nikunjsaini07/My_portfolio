@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Github, ExternalLink } from "lucide-react";
 
 export type Project = {
@@ -20,6 +21,9 @@ const toneMap: Record<NonNullable<Project["tone"]>, string> = {
 
 export function ProjectCard({ project }: { project: Project }) {
   const tone = toneMap[project.tone ?? "ink"];
+  const [isExpanded, setIsExpanded] = useState(false);
+  const shouldTruncate = project.desc.length > 130;
+
   return (
     <div
       className={`group comic-border rounded-2xl overflow-hidden ${tone} hover:-translate-y-1 transition-transform flex flex-col md:flex-row h-auto md:min-h-[350px] cursor-default`}
@@ -62,7 +66,17 @@ export function ProjectCard({ project }: { project: Project }) {
             )}
           </div>
         </div>
-        <p className="font-body text-sm md:text-base opacity-90 max-w-xl">{project.desc}</p>
+        <p className="font-body text-sm md:text-base opacity-90 max-w-xl leading-relaxed">
+          {shouldTruncate && !isExpanded ? `${project.desc.substring(0, 115)}...` : project.desc}
+          {shouldTruncate && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="ml-2 font-mono text-xs uppercase font-extrabold hover:text-sky-400 transition-colors focus:outline-none align-baseline cursor-pointer underline"
+            >
+              {isExpanded ? "Show Less" : "Read More"}
+            </button>
+          )}
+        </p>
         {project.tech && project.tech.length > 0 && (
           <div className="flex flex-wrap gap-2">
             {project.tech.map((t) => (
@@ -79,3 +93,4 @@ export function ProjectCard({ project }: { project: Project }) {
     </div>
   );
 }
+
