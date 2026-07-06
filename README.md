@@ -1,10 +1,8 @@
 # 🕷️ Nikunj Saini — Friendly Neighborhood Developer
 
-Welcome to my portfolio! A web-slinging, high-performance developer portfolio built with modern web technologies, premium glassmorphism, and a comic-inspired Spider-Man theme.
+Welcome to my portfolio!  high-performance developer portfolio built with modern web technologies, premium glassmorphism, and a comic-inspired Spider-Man theme.
 
-🚀 **Live Site:** [https://github.com/Nikunjsaini07/My_portfolio](https://github.com/Nikunjsaini07/My_portfolio)
 
----
 
 ## 🛠️ Built With
 
@@ -53,22 +51,8 @@ Ensure you have [Node.js](https://nodejs.org/) installed, then follow these step
     npm run build
     ```
 
----
 
-## 🌐 Deploying to Production
 
-This project builds into a highly optimized client bundle and can be deployed for free:
 
-### 1. Vercel (Recommended)
-1. Import the repository in [Vercel](https://vercel.com).
-2. Set the build output directory to `.output/public`.
-3. Deploy!
-
-### 2. Netlify
-1. Connect the repository on [Netlify](https://netlify.com).
-2. Use build command `npm run build` and publish directory `.output/public`.
-3. Deploy!
-
----
 
 *Made with 🕸️ and 💻 by [Nikunj Saini](https://github.com/Nikunjsaini07).*
