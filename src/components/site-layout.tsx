@@ -12,6 +12,33 @@ const nav = [
 export function SiteLayout({ children }: { children: ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [visitorCount, setVisitorCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    const isLocal =
+      typeof window !== "undefined" &&
+      (window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname.startsWith("192.168."));
+
+    const url = isLocal
+      ? "https://api.counterapi.dev/v1/nikunjsaini07-portfolio/hits/"
+      : "https://api.counterapi.dev/v1/nikunjsaini07-portfolio/hits/up";
+
+    fetch(url)
+      .then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.json();
+      })
+      .then((data) => {
+        if (data && typeof data.count === "number") {
+          setVisitorCount(data.count);
+        }
+      })
+      .catch((err) => {
+        console.error("Failed to fetch visitor count:", err);
+      });
+  }, []);
 
   useEffect(() => {
     const sections = ["home", "projects", "about", "connect"];
@@ -149,6 +176,20 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             }}
           >
             <span>© 2026 Nikunj Saini · With great power… comes great coding</span>
+            {visitorCount !== null ? (
+              <div className="flex items-center gap-1.5 px-3 py-1 comic-border-sm bg-black/40 rounded-full font-mono text-[10px] sm:text-xs text-sky-400">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-400"></span>
+                </span>
+                <span>spider-tracer pings: {visitorCount.toLocaleString()}</span>
+              </div>
+            ) : (
+              <div className="flex items-center gap-1.5 px-3 py-1 comic-border-sm bg-black/40 rounded-full font-mono text-[10px] sm:text-xs text-muted-foreground/60">
+                <span className="h-2 w-2 rounded-full bg-neutral-600"></span>
+                <span>spider-tracer pings: ...</span>
+              </div>
+            )}
             <span className="opacity-70">Built in Saharanpur · Swinging on Go</span>
           </footer>
         </div>
