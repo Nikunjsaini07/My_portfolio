@@ -546,7 +546,7 @@ function Home() {
               {[
                 { i: Github, l: "GitHub", href: "https://github.com/Nikunjsaini07" },
                 { i: Linkedin, l: "LinkedIn", href: "https://www.linkedin.com/in/nikunjsaini2004/" },
-                { i: X, l: "Twitter", href: "https://x.com/nikunj_saini" },
+                { i: X, l: "Twitter", href: "https://x.com/nikunj_saini7" },
               ].map(({ i: Icon, l, href }) => (
                 <a
                   key={l}
